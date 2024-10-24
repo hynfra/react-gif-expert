@@ -1,6 +1,7 @@
 
 import { GifItem } from "./GifItem";
 import { useFetchGifs } from "../hooks/useFetchGifs";
+import PropTypes from "prop-types";
 
 export const GifGrid = ({ category }) => {
   
@@ -17,9 +18,7 @@ export const GifGrid = ({ category }) => {
               {
                 //recibe el boolean para ver si se cargaron las imagenes
                 // el null no se carga en react
-                isLoading 
-                ? ( <h2>cargando...</h2>)
-                 : null
+                isLoading && ( <h2>Cargando...</h2> )
               }
       
 
@@ -41,4 +40,10 @@ export const GifGrid = ({ category }) => {
            
         </>
   )
+}
+
+
+
+GifGrid.propTypes = {
+  category: PropTypes.string.isRequired,
 }
